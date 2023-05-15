@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráfico Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8"/>
+    <style>
+        body{
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #272727;
+        }
+        .case-chart{
+            background-color: rgba(0,0,0,.3);
+            padding: 2%;
+            width: 60%;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="case-chart">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        let ctx = document.querySelector('#myChart').getContext('2d')
+
+        const labels = ['Time 1', 'Time 2', 'Time 3', 'Time 4'];
+        const points = [100,121,255,15];
+        const color = '#03FA6E';
+        
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Pontuação',
+                    data: points,
+                    borderColor: color,
+                    backgroundColor: color
+                }
+            ]
+        }
+        const config = {
+            type: 'line',
+            data: data
+        }
+
+        let myChart = new Chart(ctx, config);
+
+    </script>
+</body>
+</html>
